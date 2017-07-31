@@ -18,6 +18,7 @@ public class UserAction extends ActionSupport implements ModelDriven<Employee> {
 	private Employee employee;
 	
 	private List<Depart> departList;
+	
 	/**
 	 * 用于注册的方法
 	 * @return

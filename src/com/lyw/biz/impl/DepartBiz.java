@@ -16,13 +16,12 @@ public class DepartBiz implements IDepartBiz {
 	private IDepartDAO departDAO = null; 
 	@Override
 	public List<Depart> queryAll() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
-		departDAO=(IDepartDAO) context.getBean("departDAO");
 		return departDAO.queryAll();
 	}
-	public IDepartDAO getDepartDAO() {
-		return departDAO;
+	public void setDepartDAO(IDepartDAO departDAO) {
+		this.departDAO = departDAO;
 	}
+	
 
 
 }

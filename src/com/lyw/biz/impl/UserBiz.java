@@ -16,8 +16,6 @@ public class UserBiz implements IUserBiz {
 	 */
 	@Override
 	public void register(Employee emp) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("config/applicationContext.xml");
-		userDAO = (IUserDAO)context.getBean("userDAO");
 		userDAO.insert(emp);
 	}
 	

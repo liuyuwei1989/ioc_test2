@@ -28,7 +28,7 @@
 <body>
 	<div class="container">
 		<div class="col-xs-6 col-xs-offset-3">
-			<form role="form" method="post" action="User_resgister" method="post" enctype="multipart/form-data">
+			<form role="form" method="post" action="User_register" method="post" enctype="multipart/form-data">
 				<div class="form-group">
 					<label>员工姓名：</label>
 					<s:textfield cssClass="form-control" theme="simple"

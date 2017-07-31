@@ -13,12 +13,11 @@
 		</property>
 	</bean> -->
 	<bean id="userDAO" class="com.lyw.dao.impl.UserDAO"></bean>
-	<bean id="userDepart" class="com.lyw.biz.impl.DepartBiz"></bean>
+	<bean id="departDAO" class="com.lyw.dao.impl.DepartDAO"></bean>
 	<bean id="userBiz" class="com.lyw.biz.impl.UserBiz">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
-	<bean id="userAction" class="com.lyw.action.UserAction">
-		<property name="userBiz" ref="userBiz"></property>
-		<property name="departBiz" ref=""></property>
+	<bean id="departBiz" class="com.lyw.biz.impl.DepartBiz">
+		<property name="departDAO" ref="departDAO"></property>
 	</bean>
 </beans>
