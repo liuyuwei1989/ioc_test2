@@ -11,13 +11,17 @@ import com.lyw.entity.Employee;
 public class UserBiz implements IUserBiz {
 
 	private IUserDAO userDAO = null;
-	
+	/**
+	 * 用于注册的biz方法
+	 */
 	@Override
 	public void register(Employee emp) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("config/applicationContext.xml");
 		userDAO = (IUserDAO)context.getBean("userDAO");
 		userDAO.insert(emp);
 	}
+	
+	
 	@Test
 	public void test(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("config/applicationContext.xml");

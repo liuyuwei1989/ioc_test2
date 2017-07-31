@@ -1,5 +1,9 @@
 package com.lyw.biz;
 
-public interface IDepartBiz {
+import java.util.List;
 
+import com.lyw.entity.Depart;
+
+public interface IDepartBiz {
+	List<Depart> queryAll();
 }
