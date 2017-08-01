@@ -16,7 +16,6 @@ import com.opensymphony.xwork2.ModelDriven;
 public class UserAction extends ActionSupport implements ModelDriven<Employee> {
 
 	
-	private Employee employee;
 	/**
 	 * 
 	 */
