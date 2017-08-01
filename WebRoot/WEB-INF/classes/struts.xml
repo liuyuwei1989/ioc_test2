@@ -9,9 +9,10 @@
 	<!-- 修改xml后不用重启tomcat -->
 	<constant name="struts.configuration.xml.reload" value="true" />
 	<package name="default" namespace="/" extends="struts-default">
-		<action name='User_*' class="com.lyw.action.UserAction" method="{1}">
-			<result name="register">showAllUser.jsp</result>
+		<action name='User_*' class="userAction" method="{1}">
+			<result name="register" type="chain">User_queryByPage</result>
 			<result name="toAddUser">addUser.jsp</result>
+			<result name="queryByPage">showAllUser.jsp</result>
 		</action>
 	</package>
 </struts>    

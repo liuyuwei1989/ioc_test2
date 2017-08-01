@@ -1,7 +1,5 @@
 package com.lyw.dao.impl;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -35,13 +33,13 @@ public class UserDAO implements IUserDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Employee> queryByPage(PagingUtils pagingUtils) {
+	public void queryByPage(PagingUtils pagingUtils) {
 		Session session = HibernateSessionFactory.getSession();
 		int page = pagingUtils.getPage();
 		int rowsPerPage = pagingUtils.getRowsPerPage();
 		int totalRows = (Integer)session.createQuery("select count(*) from Employee").uniqueResult();
 		pagingUtils.setTotalRows(totalRows);
-		pagingUtils.setUserList(session.createCriteria(Employee.class).setFirstResult(rowsPerPage*(page-1)).setMaxResults(rowsPerPage).list());		return null;
+		pagingUtils.setUserList(session.createCriteria(Employee.class).setFirstResult(rowsPerPage*(page-1)).setMaxResults(rowsPerPage).list());
 	}
 
 }

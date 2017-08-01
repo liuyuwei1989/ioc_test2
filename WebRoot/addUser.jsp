@@ -40,7 +40,7 @@
 				</div>
 				<div class="form-group">
 					<label>出生日期：</label> <input type="text" class="form-control"
-						name="birth" onClick="WdatePicker()" placeholder="生日">
+						name="birthday" onClick="WdatePicker()" placeholder="生日">
 				</div>
 				<div class="form-group">
 					<label>邮箱:</label> <input type="email" class="form-control"

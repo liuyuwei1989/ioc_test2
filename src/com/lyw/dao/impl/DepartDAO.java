@@ -43,4 +43,12 @@ public class DepartDAO implements IDepartDAO {
 		return null;
 	}
 
+	@Override
+	public Depart queryById(int departId) {
+		Session session = HibernateSessionFactory.getSession();
+		Depart depart = (Depart)session.createQuery("from Depart where id=?").setInteger(0, departId).uniqueResult();
+		session.close();
+		return depart;
+	}
+
 }

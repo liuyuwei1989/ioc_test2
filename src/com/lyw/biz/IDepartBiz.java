@@ -6,4 +6,6 @@ import com.lyw.entity.Depart;
 
 public interface IDepartBiz {
 	List<Depart> queryAll();
+
+	Depart queryById(int departId);
 }

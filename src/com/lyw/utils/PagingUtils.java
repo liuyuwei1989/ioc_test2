@@ -86,6 +86,7 @@ public class PagingUtils {
 	}
 
 	public List<Integer> getPageList() {
+		pageList.clear();
 		for(int i = 0;i<getTotalPage();i++){
 			pageList.add(i+1);
 		}

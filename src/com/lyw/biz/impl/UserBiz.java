@@ -7,6 +7,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.lyw.biz.IUserBiz;
 import com.lyw.dao.IUserDAO;
 import com.lyw.entity.Employee;
+import com.lyw.utils.PagingUtils;
 
 public class UserBiz implements IUserBiz {
 
@@ -31,6 +32,12 @@ public class UserBiz implements IUserBiz {
 	 */
 	public void setUserDAO(IUserDAO userDAO) {
 		this.userDAO = userDAO;
+	}
+
+
+	@Override
+	public void queryByPage(PagingUtils pagingUtils) {
+		this.userDAO.queryByPage(pagingUtils);
 	}
 
 }

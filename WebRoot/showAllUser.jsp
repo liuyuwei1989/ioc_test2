@@ -28,6 +28,7 @@
 </head>
 
 <body>
+<s:debug></s:debug>
 	<table
 		class="table table-bordered table-responsive table-striped table-hover">
 		<thead>
@@ -42,13 +43,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<s:iterator value="userList" var="user">
+			<s:iterator value="pagingUtils.userList" var="user">
 				<tr>
 					<td align="center" valign="middle"><s:property
 							value="#user.name" /></td>
 					<td align="center" valign="middle"><s:property
 							value="#user.sex" /></td>
-					<td align="center" valign="middle"><s:date name="#user.birth"
+					<td align="center" valign="middle"><s:date name="#user.birthday"
 							format="yyyy-MM-dd" /></td>
 					<td align="center" valign="middle"><s:property
 							value="#user.email" /></td>

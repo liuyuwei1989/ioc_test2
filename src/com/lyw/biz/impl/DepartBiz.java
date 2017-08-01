@@ -21,6 +21,10 @@ public class DepartBiz implements IDepartBiz {
 	public void setDepartDAO(IDepartDAO departDAO) {
 		this.departDAO = departDAO;
 	}
+	@Override
+	public Depart queryById(int departId) {
+		return departDAO.queryById(departId);
+	}
 	
 
 

@@ -20,4 +20,8 @@
 	<bean id="departBiz" class="com.lyw.biz.impl.DepartBiz">
 		<property name="departDAO" ref="departDAO"></property>
 	</bean>
+	<bean id="userAction" class="com.lyw.action.UserAction">
+		<property name="departBiz" ref="departBiz"></property>
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>
 </beans>

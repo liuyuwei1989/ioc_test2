@@ -9,5 +9,6 @@ public interface IDepartDAO {
 	void insert(Depart depart);
 	void delete(Depart depart);
 	List<Depart> query(Depart depart);
-	List<Depart> queryAll(); 
+	List<Depart> queryAll();
+	Depart queryById(int departId); 
 }
