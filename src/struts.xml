@@ -15,4 +15,11 @@
 			<result name="queryByPage">showAllUser.jsp</result>
 		</action>
 	</package>
+	
+	<package name="ajax" namespace="/" extends="json-default">
+		<action name="ajax_*" class="ajaxAction" method="{1}">
+			<result name="msg" type="json"></result>
+			<result name="user" type="json"></result>
+		</action>
+	</package>
 </struts>    

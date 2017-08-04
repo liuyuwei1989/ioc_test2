@@ -8,4 +8,5 @@ public interface IUserDAO {
 	void update(Employee emp);
 	void delete(Employee emp);
 	void queryByPage(PagingUtils pagingUtils);
+	Employee queryById(int id);
 }

@@ -40,4 +40,10 @@ public class UserBiz implements IUserBiz {
 		this.userDAO.queryByPage(pagingUtils);
 	}
 
+
+	@Override
+	public Employee queryById(int id) {
+		return this.userDAO.queryById(id);
+	}
+
 }

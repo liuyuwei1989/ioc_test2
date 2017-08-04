@@ -3,12 +3,12 @@ package com.lyw.dao.impl;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import com.lyw.dao.HibernateSessionFactory;
 import com.lyw.dao.IDepartDAO;
 import com.lyw.entity.Depart;
 
-public class DepartDAO implements IDepartDAO {
+public class DepartDAO extends HibernateDaoSupport implements IDepartDAO {
 
 	@Override
 	public void update(Depart depart) {
@@ -28,13 +28,10 @@ public class DepartDAO implements IDepartDAO {
 
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Depart> queryAll() {
-		Session session = HibernateSessionFactory.getSession();
-		@SuppressWarnings("unchecked")
-		List<Depart> list = session.createCriteria(Depart.class).list();
-		session.close();
-		return list;
+		return super.getHibernateTemplate().find("from Depart");
 	}
 
 	@Override
@@ -45,10 +42,7 @@ public class DepartDAO implements IDepartDAO {
 
 	@Override
 	public Depart queryById(int departId) {
-		Session session = HibernateSessionFactory.getSession();
-		Depart depart = (Depart)session.createQuery("from Depart where id=?").setInteger(0, departId).uniqueResult();
-		session.close();
-		return depart;
+		return super.getHibernateTemplate().get(Depart.class, departId);
 	}
 
 }

@@ -22,21 +22,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   	
   <body>
-    <button type="button">查看Ajax返回的内容</button>
-  	<div id="ajaxShow">22</div>
+    <form id="form">
+    	<input id="userId" name="user.id" value="1"/>
+    </form>
+    <button type="button">提交</button>
+    <div id="ajaxShow">222</div>
   </body>
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("button").click(function(){
+				var params = $("#form").serialize();
 				$.ajax({
-					url:'ajax_showMsg',
+					url:'ajax_queryUser',
 					type:'post',
-					data:'{}',
+					data:params,
 					dataType:'json',
 					success:function(data){
-						$("#ajaxShow").html(data.msg);	
-						$("#ajaxShow").show();
-					}
+						$("#ajaxShow").hide();
+					},
+					
 				})
 			})
 		})

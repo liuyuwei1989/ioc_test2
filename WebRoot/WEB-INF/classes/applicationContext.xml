@@ -6,22 +6,55 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 
 
-<!-- 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
-		<property name="configLocation"
-			value="classpath:hibernate.cfg.xml">
-		</property>
-	</bean> -->
-	<bean id="userDAO" class="com.lyw.dao.impl.UserDAO"></bean>
-	<bean id="departDAO" class="com.lyw.dao.impl.DepartDAO"></bean>
+	
+	<bean id="userDAO" class="com.lyw.dao.impl.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="departDAO" class="com.lyw.dao.impl.DepartDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	<bean id="userBiz" class="com.lyw.biz.impl.UserBiz">
 		<property name="userDAO" ref="userDAO"></property>
 	</bean>
 	<bean id="departBiz" class="com.lyw.biz.impl.DepartBiz">
 		<property name="departDAO" ref="departDAO"></property>
 	</bean>
-	<bean id="userAction" class="com.lyw.action.UserAction" scope="prototype">
+	<bean name="userAction" class="com.lyw.action.UserAction" scope="prototype">
 		<property name="departBiz" ref="departBiz"></property>
 		<property name="userBiz" ref="userBiz"></property>
 	</bean>
-</beans>
+	<bean name="ajaxAction" class="com.lyw.action.AjaxShow" scope="prototype">
+		<property name="userBiz" ref="userBiz"></property>
+	</bean>
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/company">
+		</property>
+		<property name="username" value="root"></property>
+		<property name="password" value="123456"></property>
+	</bean>
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/lyw/entity/Depart.hbm.xml</value>
+				<value>com/lyw/entity/Employee.hbm.xml</value>
+			</list>
+		</property>
+	</bean></beans>
