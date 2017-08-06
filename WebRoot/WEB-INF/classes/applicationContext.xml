@@ -23,7 +23,7 @@
 		<property name="departBiz" ref="departBiz"></property>
 		<property name="userBiz" ref="userBiz"></property>
 	</bean>
-	<bean name="ajaxAction" class="com.lyw.action.AjaxShow" scope="prototype">
+	<bean name="ajaxAction" class="com.lyw.action.AjaxShow" scope="singleton">
 		<property name="userBiz" ref="userBiz"></property>
 	</bean>
 	<bean id="dataSource"

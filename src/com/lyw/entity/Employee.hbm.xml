@@ -10,7 +10,7 @@
             <column name="id" />
             <generator class="identity" />
         </id>
-        <many-to-one name="depart" class="com.lyw.entity.Depart" fetch="select" lazy="false">
+        <many-to-one name="depart" class="com.lyw.entity.Depart" lazy="false">
             <column name="departId" />
         </many-to-one>
         <property name="name" type="java.lang.String">

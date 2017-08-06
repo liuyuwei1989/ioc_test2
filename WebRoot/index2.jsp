@@ -38,9 +38,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					data:params,
 					dataType:'json',
 					success:function(data){
-						$("#ajaxShow").hide();
+						alert(data.user.email);
 					},
-					
+					error:function(){
+						alert("1");
+					}
 				})
 			})
 		})
