@@ -22,11 +22,5 @@
             </key>
             <one-to-many class="com.lyw.entity.Employee" />
         </set>
-        <set name="employees_1" inverse="true">
-            <key>
-                <column name="departId" />
-            </key>
-            <one-to-many class="com.bwf.entity.Employee" />
-        </set>
     </class>
 </hibernate-mapping>

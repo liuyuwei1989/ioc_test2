@@ -7,17 +7,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.lyw.biz.IUserBiz;
 import com.lyw.dao.IUserDAO;
 import com.lyw.entity.Employee;
+import com.lyw.utils.PagingUtils;
 
 public class UserBiz implements IUserBiz {
 
 	private IUserDAO userDAO = null;
-	
+	/**
+	 * 用于注册的biz方法
+	 */
 	@Override
 	public void register(Employee emp) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("config/applicationContext.xml");
-		userDAO = (IUserDAO)context.getBean("userDAO");
 		userDAO.insert(emp);
 	}
+	
+	
 	@Test
 	public void test(){
 		ApplicationContext context = new ClassPathXmlApplicationContext("config/applicationContext.xml");
@@ -29,6 +32,18 @@ public class UserBiz implements IUserBiz {
 	 */
 	public void setUserDAO(IUserDAO userDAO) {
 		this.userDAO = userDAO;
+	}
+
+
+	@Override
+	public void queryByPage(PagingUtils pagingUtils) {
+		this.userDAO.queryByPage(pagingUtils);
+	}
+
+
+	@Override
+	public Employee queryById(int id) {
+		return this.userDAO.queryById(id);
 	}
 
 }

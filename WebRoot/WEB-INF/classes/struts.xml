@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
+	<!-- 支持动态方法调用 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 配置编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 修改xml后不用重启tomcat -->
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<package name="default" namespace="/" extends="struts-default">
+		<action name='User_*' class="userAction" method="{1}">
+			<result name="register" type="chain">User_queryByPage</result>
+			<result name="toAddUser">addUser.jsp</result>
+			<result name="queryByPage">showAllUser.jsp</result>
+		</action>
+	</package>
+	
+	<package name="ajax" namespace="/" extends="json-default">
+		<action name="ajax_*" class="ajaxAction" method="{1}">
+			<result name="msg" type="json"></result>
+			<result name="user" type="json"></result>
+		</action>
+	</package>
 </struts>    
